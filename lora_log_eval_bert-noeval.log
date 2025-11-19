@@ -228,3 +228,4 @@ Packing train dataset: 100%|██████████| 1723/1723 [00:00<00:
 {'loss': 0.2645, 'grad_norm': 0.14366109669208527, 'learning_rate': 1.62962962962963e-05, 'entropy': 0.2833472446009919, 'num_tokens': 1963171.0, 'mean_token_accuracy': 0.9215166520428013, 'epoch': 9.3}
 {'loss': 0.2823, 'grad_norm': 0.6703752279281616, 'learning_rate': 1.4814814814814817e-06, 'entropy': 0.28721300009134654, 'num_tokens': 2109170.0, 'mean_token_accuracy': 0.9212680120725889, 'epoch': 10.0}
 {'train_runtime': 2112.2836, 'train_samples_per_second': 0.989, 'train_steps_per_second': 0.066, 'train_loss': 0.5723964026996068, 'epoch': 10.0}
+
