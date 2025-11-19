@@ -1,0 +1,5 @@
+.cursorindexingignore
+.specstory/**
+npc_finetuned_bertscore-eval-noeval/**
+final_res_test.xlsx
+*.zip

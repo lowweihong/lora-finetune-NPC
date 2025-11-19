@@ -1,0 +1,16 @@
+model_name_or_path: microsoft/Phi-3-mini-4k-instruct
+attn_implementation: flash_attention_2
+dataset_id_or_path: train_split.json
+eval_dataset_id_or_path: eval_split.json
+max_seq_length: 1024
+packing: true
+num_train_epochs: 10
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+learning_rate: 2e-4
+output_dir: ./npc_finetuned_bertscore-eval-noeval
+push_to_hub: false
+# For LoRA only
+lora_r: 16
+lora_alpha: 16
+lora_target_modules: all-linear
