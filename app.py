@@ -32,7 +32,7 @@ def load_model_and_tokenizer():
     
     # Try local paths first (for local development)
     model_path = None
-    for path in ["./npc_finetuned_bertscore-eval-noeval", "npc_finetuned_bertscore-eval-noeval"]:
+    for path in ['npc_finetuned_bertscore-eval-noeval']:#["./npc_finetuned_quantized", "./npc_finetuned_bertscore-eval-noeval"]:
         if os.path.exists(path):
             model_path = path
             break
