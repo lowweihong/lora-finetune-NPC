@@ -60,13 +60,13 @@ def load_model_and_tokenizer():
     print("Loading model (this may take a minute)...")
     # Use float16 for faster inference (half the size, faster on CPU)
     try:
-        torch_dtype = torch.float16
+        dtype = torch.float16
     except:
-        torch_dtype = torch.float32
+        dtype = torch.float32
     
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
-        torch_dtype=torch_dtype,
+        dtype=dtype,  # Use dtype instead of torch_dtype (deprecated)
         device_map="cpu",
         low_cpu_mem_usage=True,
         token=hf_token
