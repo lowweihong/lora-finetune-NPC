@@ -39,7 +39,7 @@ The model is trained to generate contextual, in-character responses for NPCs bas
 - **Learning Rate**: 2e-4
 - **Optimizer**: paged_adamw_8bit
 - **Quantization**: 4-bit (NF4) for memory efficiency
-- **Sequence Length**: 1024 tokens
+- **Sequence Length**: 4096 tokens
 - **Packing**: Enabled for efficient training
 
 ## Training Process
