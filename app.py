@@ -120,7 +120,7 @@ def generate_response(generator, tokenizer, personality, emotion, query, max_new
 
 # Main UI
 st.title("🎮 NPC Dialogue Generator")
-st.markdown("Generate character responses using your fine-tuned LoRA model")
+st.markdown("Generate character responses using the fine-tuned LoRA model")
 
 # Load model with progress indicator
 if 'model_loaded' not in st.session_state:
