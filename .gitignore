@@ -1,6 +1,6 @@
 .cursorindexingignore
 .specstory/**
-npc_finetuned_*/
+npc_finetuned_quantized/**
 final_res_test.xlsx
 *.zip
 .DS_Store
@@ -12,3 +12,4 @@ __pycache__/
 env/
 venv/
 .venv
+# Allow npc_finetuned_bertscore-eval-noeval to be committed (249MB, files < 100MB)
