@@ -1,5 +1,14 @@
 .cursorindexingignore
 .specstory/**
-npc_finetuned_bertscore-eval-noeval/**
+npc_finetuned_*/
 final_res_test.xlsx
 *.zip
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv
