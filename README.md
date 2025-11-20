@@ -2,6 +2,14 @@
 
 This project fine-tunes Microsoft's Phi-3-mini-4k-instruct model using LoRA (Low-Rank Adaptation) to generate character-consistent NPC (Non-Player Character) dialogue for games.
 
+## Demo
+
+<p align="center">
+  <video src="demo.mp4" width="640" controls autoplay loop muted playsinline>
+    Your browser does not support the video tag. Download the <a href="demo.mp4">demo video</a>.
+  </video>
+</p>
+
 ## Overview
 
 The model is trained to generate contextual, in-character responses for NPCs based on their personality, biography, and emotional state. The training uses a supervised fine-tuning (SFT) approach with LoRA adapters to efficiently fine-tune the base model while maintaining low memory requirements.
