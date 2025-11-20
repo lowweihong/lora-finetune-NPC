@@ -92,7 +92,7 @@ def main():
         # Compute BERTScore (semantic similarity; use F1 as main score)
         bert_results = bertscore.compute(predictions=pred_texts, references=label_texts, lang="en")
         
-        # Optional: Add perplexity for comparison
+        # Add perplexity for comparison
         shift_logits = logits[..., :-1, :].contiguous()
         shift_labels = labels[..., 1:].contiguous().view(-1)
         loss_fct = torch.nn.CrossEntropyLoss(ignore_index=-100)
@@ -102,7 +102,7 @@ def main():
             "bertscore_f1": np.mean(bert_results["f1"]),  # Average F1 score
             "bertscore_precision": np.mean(bert_results["precision"]),
             "bertscore_recall": np.mean(bert_results["recall"]),
-            "perplexity": perplexity  # Optional built-in metric
+            "perplexity": perplexity
         }
         print(perf)
         return perf
@@ -120,7 +120,7 @@ def main():
     # Load dataset
     train_dataset = Dataset.from_json(config["dataset_id_or_path"])
     
-    # Training args (switch to SFTConfig for assistant_only_loss support)
+    # Training args (use SFTConfig for completion_only_loss)
     args = SFTConfig(
         output_dir=config["output_dir"],
         num_train_epochs=config.get("num_train_epochs", 3),
@@ -137,22 +137,22 @@ def main():
         # eval_strategy="steps",  # Always "steps" now (or "epoch" for per-epoch)
         # eval_steps=10,  # Eval every 500 steps (adjust to match save_steps or less frequent)
         push_to_hub=config.get("push_to_hub", False),
-        completion_only_loss=True,  # Added here! Focuses loss on assistant tokens only
-        # max_seq_length=config.get("max_seq_length", 1024),  # Optional: Re-add if you want explicit control
-        packing=config.get("packing", True)  # Optional: Re-add if you want packing enabled
+        completion_only_loss=True,  # Focuses loss on assistant tokens only
+        max_seq_length=config.get("max_seq_length", 4096),
+        packing=config.get("packing", True)
     )
     
     # Trainer
     trainer = SFTTrainer(
         model=model,
         # tokenizer=tokenizer,
-        processing_class=tokenizer,  # Changed here
+        processing_class=tokenizer,
         train_dataset=train_dataset,
-        # eval_dataset=eval_dataset,  # Add this!
+        # eval_dataset=eval_dataset,
         peft_config=peft_config,
-        # max_seq_length=config.get("max_seq_length", 1024),
+        max_seq_length=config.get("max_seq_length", 4096),
         # packing=config.get("packing", True),
-        compute_metrics=compute_metrics,  # Add this!
+        compute_metrics=compute_metrics, 
         args=args
     )
     
