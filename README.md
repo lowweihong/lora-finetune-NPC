@@ -4,11 +4,7 @@ This project fine-tunes Microsoft's Phi-3-mini-4k-instruct model using LoRA (Low
 
 ## Demo
 
-<p align="center">
-  <video src="demo.mp4" width="640" controls autoplay loop muted playsinline>
-    Your browser does not support the video tag. Download the <a href="demo.mp4">demo video</a>.
-  </video>
-</p>
+![Demo](demo.gif)
 
 ## Overview
 
